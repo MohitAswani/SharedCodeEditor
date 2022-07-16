@@ -1,0 +1,123 @@
+.body {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-family: "Muli", sans-serif;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+.nameLogo{
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.nameLogo img{
+  width: 30px;
+  height:fit-content;
+  margin-right:15px ;
+}
+
+.container a {
+  text-decoration: none;
+  color: #4aed88;
+}
+
+.container a:hover {
+  text-decoration: underline;
+}
+
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background: #4aed88;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+/* To scale down the button when we click it */
+.btn:active {
+  transform: scale(0.98);
+}
+
+.text {
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.form-control {
+  /* We position it relative because we want the label to be absolute */
+  position: relative;
+  margin: 20px 0 40px;
+  width: 300px;
+}
+
+.form-control input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Targetting the border when the input is selected and also when the validation fails. */
+.form-control input:focus,
+.form-control input:valid {
+  outline: 0;
+  border-bottom-color: #4aed88;
+}
+
+/* The form control is relative and hence we can place the label over the input */
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* label span next to the input in focus or once which is valid.*/
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: #4aed88;
+  transform: translateY(-30px);
+}
+
+.text {
+  margin-top: 30px;
+  display: inline-block;
+}
