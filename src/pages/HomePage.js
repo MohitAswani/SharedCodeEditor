@@ -83,7 +83,7 @@ const HomePage = () => {
     <div className={classes.body}>
       <div className={classes.container}>
         <div className={classes.nameLogo}>
-          <img src="https://cdn4.iconfinder.com/data/icons/editor-4/32/Editor_Source_Code-512.png" />
+          <img src="https://cdn4.iconfinder.com/data/icons/editor-4/32/Editor_Source_Code-512.png" alt="website symbol" />
           <h1>CodeEditor</h1>
         </div>
         <form onSubmit={joinHandler}>
