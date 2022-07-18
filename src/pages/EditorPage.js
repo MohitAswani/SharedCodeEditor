@@ -38,7 +38,7 @@ const EditorPage = () => {
       const handleErrors = (e) => {
         console.log("socket error", e);
         toast.error("Socket connection failed, try again later");
-        reactNavigator("/home");
+        reactNavigator("/");
       };
 
       socketRef.current.emit(ACTIONS.JOIN, {
@@ -96,7 +96,7 @@ const EditorPage = () => {
   };
 
   const leaveRoom = () => {
-    reactNavigator("/home");
+    reactNavigator("/");
   };
 
   return (
