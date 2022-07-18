@@ -92,9 +92,9 @@ const EditorPage = () => {
   const copyRoomID = async () => {
     try {
       await navigator.clipboard.writeText(`https://shared-code-editor.netlify.app/editor/${roomId}`);
-      toast.success("Room ID copied!");
+      toast.success("Room link copied!");
     } catch (err) {
-      toast.error("Could not copy roomId");
+      toast.error("Could not copy room link");
       console.log(err);
     }
   };
