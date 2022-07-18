@@ -99,7 +99,7 @@ const HomePage = () => {
           </div>
           <div className={classes["form-control"]}>
             <input
-              type="password"
+              type="text"
               value={username}
               onChange={usernameHandler}
               onKeyUp={enterHandler}

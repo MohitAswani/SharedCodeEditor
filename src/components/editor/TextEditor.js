@@ -4,11 +4,12 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/theme/dracula.css";
 import "codemirror/mode/textile/textile";
 
+import ACTIONS from "../../util/Actions";
+
 const TextEditor = (props) => {
   const textEditorRef = useRef();
 
   useEffect(() => {
-    console.log("useEFFECT");
     async function init() {
       const cm = Codemirror.fromTextArea(textEditorRef.current, {
         mode: { name: "textile", json: true },
@@ -18,14 +19,13 @@ const TextEditor = (props) => {
 
       if (props.fullHeight) {
         cm.setSize(null, "90vh");
-      }
-      else{
+      } else {
         cm.setSize(null, "45vh");
       }
     }
 
     init();
-  }, []);
+  }, [props.fullHeight]);
 
   return <textarea id={`${props.id}`} ref={textEditorRef} />;
 };
