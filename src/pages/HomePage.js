@@ -108,7 +108,7 @@ const HomePage = () => {
             <label ref={usernameLabelRef}>Username</label>
           </div>
 
-          <button className={classes.btn}>Join</button>
+          <button className={`${classes.btn}`}>Join</button>
 
           <p className={classes.text}>Don't have a room id?&nbsp;</p>
           <a href="/" onClick={createNewRoom}>

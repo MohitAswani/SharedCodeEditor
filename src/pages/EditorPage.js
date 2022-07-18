@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-import Editor from "../components/editor/Editor";
+import CodeEditor from "../components/editor/CodeEditor";
+import TextEditor from "../components/editor/TextEditor";
 
 import classes from "./EditorPage.module.css";
 
@@ -11,14 +12,14 @@ const EditorPage = () => {
     <>
       <div className={classes.body}>
         <div className={classes.codeEditor}>
-          <Editor id="codeEditor" fullHeight={true} />
+          <CodeEditor id="codeEditor" fullHeight={true} />
         </div>
         <div className={classes.ioEditor}>
           <div className={classes.inputEditor}>
-            <Editor id="inputEditor" />
+            <TextEditor id="inputEditor" />
           </div>
           <div className={classes.outputEditor}>
-            <Editor id="outputEditor" />
+            <TextEditor id="outputEditor" />
           </div>
         </div>
       </div>
