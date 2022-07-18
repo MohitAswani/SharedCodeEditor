@@ -88,7 +88,7 @@ const Editor = ({ fullHeight, id, socketRef, roomId, onCodeChange }) => {
 
         // SETTING THE CURSOR TO THE END
         codeMirrorRef.current.focus();
-        codeMirrorRef.current.setCursor(cmInstance.lineCount(), 0);
+        codeMirrorRef.current.setCursor(codeMirrorRef.current.lineCount(), 0);
       });
     }
 
