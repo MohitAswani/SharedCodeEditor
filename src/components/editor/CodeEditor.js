@@ -25,23 +25,25 @@ const Editor = ({ fullHeight, id, socketRef, roomId, onCodeChange }) => {
 
   useEffect(() => {
     async function init() {
-      // A method of code mirror for onchange events.
-      codeMirrorRef.current.on("change", (instance, changes) => {
-        // Origin gives us the type of changes taking place
-        const { origin } = changes;
-        // getValeu on instance gives us the text in the editor.
-        const code = instance.getValue();
+      if (codeMirrorRef.current) {
+        // A method of code mirror for onchange events.
+        codeMirrorRef.current.on("change", (instance, changes) => {
+          // Origin gives us the type of changes taking place
+          const { origin } = changes;
+          // getValeu on instance gives us the text in the editor.
+          const code = instance.getValue();
 
-        // Changing the code in parent component.
-        onCodeChange(code);
+          // Changing the code in parent component.
+          onCodeChange(code);
 
-        if (origin !== "setValue") {
-          socketRef.current.emit(ACTIONS.CODE_CHANGE, {
-            roomId,
-            code,
-          });
-        }
-      });
+          if (origin !== "setValue") {
+            socketRef.current.emit(ACTIONS.CODE_CHANGE, {
+              roomId,
+              code,
+            });
+          }
+        });
+      }
 
       // codeMirrorRef.current.setValue("console.log('hello')");
     }

@@ -10,14 +10,17 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Toaster position="top-right" toastOptions={{
-        success:{
-          theme:{
-            primary:'#4aed88',
-          }
-        }
-      }} />
       <BrowserRouter>
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            success: {
+              theme: {
+                primary: "#4aed88",
+              },
+            },
+          }}
+        />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/editor/:roomId" element={<EditorPage />}></Route>

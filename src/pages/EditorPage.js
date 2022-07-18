@@ -3,7 +3,6 @@ import {
   useLocation,
   useParams,
   useNavigate,
-  Navigate,
 } from "react-router-dom";
 import toast from "react-hot-toast";
 
@@ -29,6 +28,15 @@ const EditorPage = () => {
   const reactNavigator = useNavigate();
 
   useEffect(() => {
+
+    if (!location.state) {
+      return reactNavigator("/", {
+        state: {
+          roomId: roomId,
+        },
+      });
+    }
+
     const init = async () => {
       socketRef.current = await initSocket();
 
@@ -81,13 +89,9 @@ const EditorPage = () => {
     };
   }, [location, reactNavigator, roomId]);
 
-  if (!location.state) {
-    return <Navigate to="/" />;
-  }
-
   const copyRoomID = async () => {
     try {
-      await navigator.clipboard.writeText(roomId);
+      await navigator.clipboard.writeText(`https://shared-code-editor.netlify.app/editor/${roomId}`);
       toast.success("Room ID copied!");
     } catch (err) {
       toast.error("Could not copy roomId");
