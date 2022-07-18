@@ -25,7 +25,6 @@ const Editor = ({ fullHeight, id, socketRef, roomId, onCodeChange }) => {
 
   useEffect(() => {
     async function init() {
-
       // A method of code mirror for onchange events.
       codeMirrorRef.current.on("change", (instance, changes) => {
         // Origin gives us the type of changes taking place
@@ -86,6 +85,10 @@ const Editor = ({ fullHeight, id, socketRef, roomId, onCodeChange }) => {
         if (code !== null) {
           codeMirrorRef.current.setValue(code);
         }
+
+        // SETTING THE CURSOR TO THE END
+        codeMirrorRef.current.focus();
+        codeMirrorRef.current.setCursor(cmInstance.lineCount(), 0);
       });
     }
 
