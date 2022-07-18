@@ -8,7 +8,6 @@ import {
 import toast from "react-hot-toast";
 
 import CodeEditor from "../components/editor/CodeEditor";
-import TextEditor from "../components/editor/TextEditor";
 import { initSocket } from "../util/socket";
 import ACTIONS from "../util/Actions";
 
