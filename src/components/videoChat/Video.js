@@ -8,7 +8,6 @@ const Video = (props) => {
   useEffect(() => {
     props.peer.on("stream", (stream) => {
       ref.current.srcObject = stream;
-      ref.current.play();
       console.log(stream);
     });
   }, [props.peer]);
@@ -18,6 +17,7 @@ const Video = (props) => {
       <div className={classes.videoContainer}>
           {/* <Avatar name='Random' size="100%" /> */}
           <video
+            autoPlay
             playsInline
             ref={ref}
             className={classes.video}
