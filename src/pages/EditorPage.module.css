@@ -1,14 +1,19 @@
-.body{
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.body {
   overflow: hidden;
 }
 
-.body{
+.body {
   height: 90vh;
   display: grid;
-  grid-template-columns: 70% auto;
+  grid-template-columns: 87.5% 12.5%;
 }
 
-.ioEditor{
+.ioEditor {
   display: grid;
   grid-template-rows: auto auto;
 }
@@ -24,7 +29,7 @@
 }
 
 .leaveBtn,
-.copyBtn{
+.copyBtn {
   margin: 0rem 1rem;
 }
 
@@ -45,5 +50,25 @@
   background: black;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.videoChat {
+  background: rgb(32, 32, 32);
+  padding: 4%;
+  overflow-y: scroll;
+}
+
+.videoChat li .video {
+  position: absolute;
+  width: 100%;
+  height: 15vh;
+  background: black;
+  border-radius: 8%;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 4%;
+  display: flex;
+  justify-content: center;
   align-items: center;
 }

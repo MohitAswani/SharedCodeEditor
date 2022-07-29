@@ -35,7 +35,6 @@ const HomePage = () => {
       })
       .join("");
 
-    console.log(navigate);
     if (location.state && roomId === "") {
       setRoomId(location.state?.roomId);
     }

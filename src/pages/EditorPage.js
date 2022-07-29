@@ -1,14 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  useLocation,
-  useParams,
-  useNavigate,
-} from "react-router-dom";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 import CodeEditor from "../components/editor/CodeEditor";
 import { initSocket } from "../util/socket";
 import ACTIONS from "../util/Actions";
+import VideoList from "../components/videoChat/VideoList";
 
 import classes from "./EditorPage.module.css";
 
@@ -25,10 +22,11 @@ const EditorPage = () => {
 
   const { roomId } = useParams();
 
+  const [username,setUsername]=useState("");
+
   const reactNavigator = useNavigate();
 
   useEffect(() => {
-
     if (!location.state) {
       return reactNavigator("/", {
         state: {
@@ -53,6 +51,8 @@ const EditorPage = () => {
         roomId,
         username: location.state?.username,
       });
+
+      setUsername(location.state?.username);
 
       // LISTINING TO JOINED EVENT
       socketRef.current.on(
@@ -91,7 +91,9 @@ const EditorPage = () => {
 
   const copyRoomID = async () => {
     try {
-      await navigator.clipboard.writeText(`https://shared-code-editor.netlify.app/editor/${roomId}`);
+      await navigator.clipboard.writeText(
+        `https://shared-code-editor.netlify.app/editor/${roomId}`
+      );
       toast.success("Room link copied!");
     } catch (err) {
       toast.error("Could not copy room link");
@@ -116,6 +118,12 @@ const EditorPage = () => {
               codeRef.current = code;
             }}
           />
+        </div>
+        <div className={classes.videoChat}>
+            <VideoList
+              socketRef={socketRef}
+              currentUsername={username}
+            />
         </div>
         {/* <div className={classes.ioEditor}>
           <div className={classes.inputEditor}>

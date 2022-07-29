@@ -71,9 +71,9 @@ const Editor = ({ fullHeight, id, socketRef, roomId, onCodeChange }) => {
       });
 
       if (fullHeight) {
-        codeMirrorRef.current.setSize("100vw", "90vh");
+        codeMirrorRef.current.setSize("100%", "90vh");
       } else {
-        codeMirrorRef.current.setSize("100vw", "45vh");
+        codeMirrorRef.current.setSize("100%", "45vh");
       }
     }
     init();
